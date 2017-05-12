@@ -21,8 +21,22 @@ puts "Your task is to guess the correct colour and position of all four colours 
 
 @computer_player.generate_code
 
+# puts "--------"
+# puts @computer_player.secret_code
+# puts "--------"
+
+
 puts "The computer has generated a random code, please enter your first guess and take note of the"
 puts "hints provided by the scoring pegs."
 
-@human_player.get_input
+@decoding_board.get_input
 
+puts "---------------------------------------------"
+
+puts "Thank you"
+puts "Let's put that on the board and see how you did: "
+
+# player guess is placed in applicable row
+# player guess is compared to computers guess
+# player receives feedback via the scoring pegs
+# game continues until feedback all exact or board full and not all exact

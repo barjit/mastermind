@@ -27,7 +27,12 @@ class DecodingBoard
     puts
   end
 
-
+  def get_input
+    puts ">> "
+    @guess = gets.chomp
+    @guess.split(" ").map(&:to_i)
+    @guess
+  end
 
 
 end
