@@ -34,12 +34,25 @@ class DecodingBoard
     @board[turn][3] = guess[3]
   end
 
-  def compare_guess
-  end
+# -------------Work on below-----------------
+  # def insert_black_peg
+  #   @board[turn]['column 4..7')] = black_peg
+  # end
+
+  # def check_if_exact_position(secret_code, player_guess)
+  #   i = 0
+  #   while i < 4
+  #     if (secret_code[i] <=> player_guess[i]) == 0
+  #       #something
+  #     end
+  #     i += 1
+  #   end
+  # end
 
   def winning_conditions
     false
   end
+# -------------Work on above-----------------
 
 end
 
@@ -51,3 +64,20 @@ end
 # place each of the 4 choices
 
 # etc
+
+
+#to compare:
+
+# secret_code = [4, 1, 2, 3]
+# player_guess = [2, 2, 1, 3]
+
+# i = 0
+#
+# while i < 4
+#   if (secret_code[i] <=> player_guess[i]) == 0
+#     @black_peg(correct colour and position)
+#   end
+#   i += 1
+# end
+
+#
