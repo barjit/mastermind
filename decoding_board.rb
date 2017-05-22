@@ -1,5 +1,4 @@
 class DecodingBoard
-  require_relative 'human_player.rb'
 
   def initialize
     @board = Array.new(12) { Array.new(8){" "}}
@@ -28,14 +27,19 @@ class DecodingBoard
     puts
   end
 
-  def insert_player_guess(guess)
-    @board[0][0] = guess[0]
-    @board[0][1] = guess[1]
-    @board[0][2] = guess[2]
-    @board[0][3] = guess[3]
+  def insert_player_guess(turn, guess)
+    @board[turn][0] = guess[0]
+    @board[turn][1] = guess[1]
+    @board[turn][2] = guess[2]
+    @board[turn][3] = guess[3]
   end
 
+  def compare_guess
+  end
 
+  def winning_conditions
+    false
+  end
 
 end
 

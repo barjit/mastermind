@@ -6,7 +6,7 @@ require_relative 'human_player'
 @decoding_board = DecodingBoard.new()
 @computer_player = ComputerPlayer.new()
 @human_player = HumanPlayer.new()
-
+@human_player.turn = 0
 
 puts "------------------------------------------------------------------------------------------------"
 puts
@@ -33,9 +33,20 @@ puts "Thank you"
 puts "Let's put that on the board and see how you did: "
 
 
-@decoding_board.insert_player_guess(@human_player.guess)
+@decoding_board.insert_player_guess(@human_player.turn, @human_player.guess)
 
 @decoding_board.display_board
+
+until @decoding_board.winning_conditions
+  puts "Please try again: "
+  @human_player.turn += 1
+
+  @human_player.get_guess
+  @decoding_board.insert_player_guess(@human_player.turn, @human_player.guess)
+  @decoding_board.display_board
+
+  puts "---------------------------------------------"
+end
 
 
 # player guess is placed in applicable row
