@@ -47,18 +47,33 @@ class DecodingBoard
     i = 0
     j = 0
     while i < 4
-      if (secret_code[i] <=> player_guess[i]) == 0
+      if secret_code[i] == player_guess[i]
         @board[player_turn][j+4] = '%'
-      else 
-        @board[player_turn][j+4] = '*'
       end
       i += 1
       j += 1
     end
   end
 
-  def winning_conditions
-    false
+  def check_if_contains_colour(secret_code, player_guess, player_turn)
+    k = 4
+    player_guess.each do |color|
+      if secret_code.include? color
+        unless @board[player_turn][k] == '%'
+          @board[player_turn][k] = '*'
+        end
+      end
+      k += 1
+    end
+  end
+
+  def winning_conditions?(player_turn)
+    if (@board[player_turn][4] == '%') && (@board[player_turn][5] == '%') && (@board[player_turn][6] == '%') && (@board[player_turn][7] == '%')
+      puts "Congratulations, human wins"
+      true
+    else
+      false
+    end 
   end
 # -------------Work on above-----------------
 
