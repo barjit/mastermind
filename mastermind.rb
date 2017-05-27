@@ -35,6 +35,8 @@ puts "Let's put that on the board and see how you did: "
 
 @decoding_board.insert_player_guess(@human_player.turn, @human_player.guess)
 
+@decoding_board.check_if_exact_position(@computer_player.secret_code, @human_player.guess, @human_player.turn)
+
 @decoding_board.display_board
 
 until @decoding_board.winning_conditions
@@ -43,6 +45,7 @@ until @decoding_board.winning_conditions
 
   @human_player.get_guess
   @decoding_board.insert_player_guess(@human_player.turn, @human_player.guess)
+  @decoding_board.check_if_exact_position(@computer_player.secret_code, @human_player.guess, @human_player.turn)
   @decoding_board.display_board
 
   puts "---------------------------------------------"

@@ -36,18 +36,26 @@ class DecodingBoard
 
 # -------------Work on below-----------------
   # def insert_black_peg
-  #   @board[turn]['column 4..7')] = black_peg
+  #   @board[turn][4] = '%'
   # end
 
-  # def check_if_exact_position(secret_code, player_guess)
-  #   i = 0
-  #   while i < 4
-  #     if (secret_code[i] <=> player_guess[i]) == 0
-  #       #something
-  #     end
-  #     i += 1
-  #   end
+  # def insert_white_peg
+  #   @board[turn][5] = '*'
   # end
+
+  def check_if_exact_position(secret_code, player_guess, player_turn)
+    i = 0
+    j = 0
+    while i < 4
+      if (secret_code[i] <=> player_guess[i]) == 0
+        @board[player_turn][j+4] = '%'
+      else 
+        @board[player_turn][j+4] = '*'
+      end
+      i += 1
+      j += 1
+    end
+  end
 
   def winning_conditions
     false

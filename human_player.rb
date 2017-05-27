@@ -15,5 +15,4 @@ class HumanPlayer
   end
 
 
-
 end
