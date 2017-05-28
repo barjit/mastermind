@@ -43,7 +43,7 @@ puts "Let's put that on the board and see how you did: "
 
 until @decoding_board.winning_conditions?(@human_player.turn)
 
-  puts "Please try again: "
+  puts 
   @human_player.turn += 1
 
   @human_player.get_guess
