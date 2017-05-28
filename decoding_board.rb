@@ -10,7 +10,7 @@ class DecodingBoard
     print "-----------Mastermind------------"
     print "\n"
     puts "                |                "
-    puts "                |                "
+    puts "  Your Guess:   | Scoring Pegs:  "
     puts "-----------------"
       @board.each do |row|
         print "|"
@@ -70,6 +70,9 @@ class DecodingBoard
   def winning_conditions?(player_turn)
     if (@board[player_turn][4] == '%') && (@board[player_turn][5] == '%') && (@board[player_turn][6] == '%') && (@board[player_turn][7] == '%')
       puts "Congratulations, human wins"
+      true
+    elsif (player_turn == 11)
+      puts "Computer Wins!"
       true
     else
       false

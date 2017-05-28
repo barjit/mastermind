@@ -22,7 +22,7 @@ puts "Your task is to guess the correct colour and position of all four colours 
 @computer_player.generate_code
 
 
-puts "The computer has generated a random code, please enter your first guess (numbers 1 to 4) seperated by a space) and take note of the"
+puts "The computer has generated a random code, please enter your first guess (numbers 1 to 6, seperated by a space i.e; ""1 2 3 4"") and take note of the"
 puts "hints provided by the scoring pegs."
 
 @human_player.get_guess
@@ -42,6 +42,7 @@ puts "Let's put that on the board and see how you did: "
 @decoding_board.display_board
 
 until @decoding_board.winning_conditions?(@human_player.turn)
+
   puts "Please try again: "
   @human_player.turn += 1
 
@@ -52,6 +53,7 @@ until @decoding_board.winning_conditions?(@human_player.turn)
   @decoding_board.display_board
 
   puts "---------------------------------------------"
+
 end
 
 
