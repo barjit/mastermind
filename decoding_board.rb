@@ -1,9 +1,12 @@
+# This class stores information about the decoding board
 class DecodingBoard
 
+  # Create the board, an array of 12 rows and 8 columns.
   def initialize
     @board = Array.new(12) { Array.new(8){" "}}
   end
 
+  # Display the board. 4 columns are to display the players guess and 4 columns provide feedback '%' for exact match and '*' for colour match.
   def display_board
     puts
     puts
@@ -27,6 +30,7 @@ class DecodingBoard
     puts
   end
 
+  # insert the players guess onto the board.
   def insert_player_guess(turn, guess)
     @board[turn][0] = guess[0]
     @board[turn][1] = guess[1]
@@ -34,15 +38,7 @@ class DecodingBoard
     @board[turn][3] = guess[3]
   end
 
-# -------------Work on below-----------------
-  # def insert_black_peg
-  #   @board[turn][4] = '%'
-  # end
-
-  # def insert_white_peg
-  #   @board[turn][5] = '*'
-  # end
-
+  # Compare each value in secret_code with each value in guess. Look for exact match.
   def check_if_exact_position(secret_code, player_guess, player_turn)
     i = 0
     j = 0
@@ -55,6 +51,7 @@ class DecodingBoard
     end
   end
 
+  # Check if value from guess is inside secret_code.
   def check_if_contains_colour(secret_code, player_guess, player_turn)
     k = 4
     player_guess.each do |color|
@@ -67,6 +64,7 @@ class DecodingBoard
     end
   end
 
+  # Check if winning conditions have been met.
   def winning_conditions?(player_turn)
     if (@board[player_turn][4] == '%') && (@board[player_turn][5] == '%') && (@board[player_turn][6] == '%') && (@board[player_turn][7] == '%')
       puts "Congratulations, human wins"
@@ -78,32 +76,5 @@ class DecodingBoard
       false
     end 
   end
-# -------------Work on above-----------------
 
 end
-
-
-# If it's the players first turn, go to row[0] and for each cell,
-# place each of the 4 choices.
-
-# If it's the players second turn, go to row[1] and for each cell,
-# place each of the 4 choices
-
-# etc
-
-
-#to compare:
-
-# secret_code = [4, 1, 2, 3]
-# player_guess = [2, 2, 1, 3]
-
-# i = 0
-#
-# while i < 4
-#   if (secret_code[i] <=> player_guess[i]) == 0
-#     @black_peg(correct colour and position)
-#   end
-#   i += 1
-# end
-
-#

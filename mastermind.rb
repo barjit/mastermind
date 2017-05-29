@@ -55,9 +55,3 @@ until @decoding_board.winning_conditions?(@human_player.turn)
   puts "---------------------------------------------"
 
 end
-
-
-# player guess is placed in applicable row
-# player guess is compared to computers guess
-# player receives feedback via the scoring pegs
-# game continues until feedback all exact or board full and not all exact
