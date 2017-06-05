@@ -1,6 +1,8 @@
 # This class stores information about the decoding board
 class DecodingBoard
 
+  attr_accessor :board
+  
   # Create the board, an array of 12 rows and 8 columns.
   def initialize
     @board = Array.new(12) { Array.new(8){" "}}
