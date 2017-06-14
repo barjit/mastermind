@@ -9,7 +9,7 @@ class DecodingBoard
   end
 
   # Display the board. 4 columns are to display the players guess and 4 columns provide feedback '%' for exact match and '*' for colour match.
-  def display_board
+  def show
     puts
     puts
     print "-----------Mastermind------------"
@@ -67,12 +67,18 @@ class DecodingBoard
   end
 
   # Check if winning conditions have been met.
-  def winning_conditions?(player_turn)
+  def winning_conditions_met?(player_turn)
     if (@board[player_turn][4] == '%') && (@board[player_turn][5] == '%') && (@board[player_turn][6] == '%') && (@board[player_turn][7] == '%')
+      puts
       puts "Congratulations, human wins"
+      puts
+      puts "---------------------------------------------"
       true
     elsif (player_turn == 11)
+      puts
       puts "Computer Wins!"
+      puts
+      puts "---------------------------------------------"
       true
     else
       false
