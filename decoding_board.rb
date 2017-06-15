@@ -9,7 +9,7 @@ class DecodingBoard
   end
 
   # Display the board. 4 columns are to display the players guess and 4 columns provide feedback '%' for exact match and '*' for colour match.
-  def show
+  def show(board)
     puts
     puts
     print "-----------Mastermind------------"
@@ -17,7 +17,7 @@ class DecodingBoard
     puts "                |                "
     puts "  Your Guess:   | Scoring Pegs:  "
     puts "-----------------"
-      @board.each do |row|
+      board.each do |row|
         print "|"
         row.each do |col|
           print " " + col + " |"

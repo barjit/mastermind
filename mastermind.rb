@@ -18,7 +18,7 @@ class Mastermind
     puts "Your computer opponent will generate 4 random colours out of a possible 6"
     puts "Your task is to guess the correct colour and position of all four colours within 12 guesses"
 
-    @decoding_board.show
+    @decoding_board.show(@decoding_board.board)
 
     @computer_player.generate_code
 
@@ -37,7 +37,7 @@ class Mastermind
       @decoding_board.insert_player_guess(@human_player.turn, @human_player.guess, @decoding_board.board)
       @decoding_board.check_if_exact_position(@computer_player.secret_code, @human_player.guess, @human_player.turn, @decoding_board.board)
       @decoding_board.check_if_contains_colour(@computer_player.secret_code, @human_player.guess, @human_player.turn, @decoding_board.board)
-      @decoding_board.show
+      @decoding_board.show(@decoding_board.board)
 
       puts "---------------------------------------------"
     end
