@@ -29,14 +29,14 @@ class Mastermind
 
     puts "---------------------------------------------"
 
-    until @decoding_board.winning_conditions_met?(@human_player.turn)
+    until @decoding_board.winning_conditions_met?(@decoding_board.board, @human_player.turn)
 
       puts 
       @human_player.turn += 1
       @human_player.get_guess
-      @decoding_board.insert_player_guess(@human_player.turn, @human_player.guess)
-      @decoding_board.check_if_exact_position(@computer_player.secret_code, @human_player.guess, @human_player.turn)
-      @decoding_board.check_if_contains_colour(@computer_player.secret_code, @human_player.guess, @human_player.turn)
+      @decoding_board.insert_player_guess(@human_player.turn, @human_player.guess, @decoding_board.board)
+      @decoding_board.check_if_exact_position(@computer_player.secret_code, @human_player.guess, @human_player.turn, @decoding_board.board)
+      @decoding_board.check_if_contains_colour(@computer_player.secret_code, @human_player.guess, @human_player.turn, @decoding_board.board)
       @decoding_board.show
 
       puts "---------------------------------------------"
