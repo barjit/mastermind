@@ -11,8 +11,7 @@ class HumanPlayer
 
   # Retrieve the human players guess. The player will continue to be prompted for a guess until it is in the correct format.
   def get_guess
-    puts "Please provide 4 numbers (1 to 6) seperated by a space: "
-    player_input = gets.chomp.split(" ")
+    player_input = []
     until guess_valid?(player_input)
       puts "Please provide 4 numbers (1 to 6) seperated by a space: "
       player_input = gets.chomp.split(" ")
@@ -22,15 +21,15 @@ class HumanPlayer
 
   # Check whether the players input is valid.
   def guess_valid?(input)
-    filter = input.map do |ele|
-      if ele.to_i.between?(1, 6)
+    choices = input.map do |choice|
+      if choice.to_i.between?(1, 6)
         true
       else
         false
       end
     end
 
-    if filter.include? false
+    if choices.include? false
       false
     elsif input.size != 4
       false
@@ -41,3 +40,4 @@ class HumanPlayer
 
 end
 
+ 

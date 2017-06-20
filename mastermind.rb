@@ -44,4 +44,4 @@ class Mastermind
   end
 end
 
-Mastermind.call
+Mastermind.call 
